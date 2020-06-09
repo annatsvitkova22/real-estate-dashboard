@@ -3,6 +3,7 @@ FROM node:13.12.0 as build-deps
 WORKDIR .
 COPY package.json yarn.lock ./
 RUN yarn
+RUN npm i -g @angular/cli
 COPY . ./
 RUN yarn build
 
