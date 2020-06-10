@@ -1,0 +1,18 @@
+<header class="header">
+    <div class="container">
+        <div class="headerContent">
+            <a routerLink="/" class="headerContent__logo">
+                <img src="" alt="house"/>
+            </a>
+            <nav class="headerContent__menu">
+                <ul class="headerContent__menu-list list-reset">
+                    <li *ngFor="let link of links" [class.active]='isCurrentRoute(link.path)'>
+                        <a routerLink={{link.path}} class="headerContent__item-link">
+                            {{link.name}}
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>

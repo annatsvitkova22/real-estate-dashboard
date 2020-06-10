@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "real-estate-dashboard"
+    }
+  },
+  "defaultProject": "real-estate-dashboard",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,0 +1,28 @@
+.header {
+    background-color: #5506d4;
+}
+
+.headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    &__menu-list{
+        display: flex;
+    }
+
+    &__item-link {
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s;
+        padding: 30px 15px;
+
+        &:visited {
+            color: white;
+        }
+    }
+}
+
+.active {
+    background-color: #7B68EE;
+}
