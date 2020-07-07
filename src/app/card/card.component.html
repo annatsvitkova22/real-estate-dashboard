@@ -1,1 +1,21 @@
-<p>card works!</p>
+<div 
+    class="card"
+    [ngClass]="{
+        'list-group-item-red': estate.isSold
+    }"
+>
+    <div class="d-flex justify-content-between">
+        <h2>{{estate.name}}</h2>
+        <small>{{estate.date}}</small>
+    </div>
+    <p class="card__info">{{estate.model}}</p>
+    <div class="d-flex">
+        <button (click)="onDelete()" type="button" class="btn btn-red btn-delete">Delete</button>
+        <button 
+            [disabled]="estate.isSold"
+            (click)="onBuy()"
+            type="button" 
+            class="btn btn-green"
+        >Buy</button>
+    </div>
+</div>

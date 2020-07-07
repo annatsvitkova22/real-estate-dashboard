@@ -1,1 +1,15 @@
-<p>post works!</p>
+<main>
+    <div class="container">
+        <!-- (addEstate)="onAdd($event)" -->
+        <app-estate-form
+            [id]="(idState | async).id"
+        ></app-estate-form>
+        <div class="list-group">
+            <!-- (deleteEstate) = "onDelete($event)" -->
+            <app-card
+                [estate]="e"
+                *ngFor="let e of (estateState | async).estates"
+            ></app-card>
+        </div>
+    </div>
+</main>

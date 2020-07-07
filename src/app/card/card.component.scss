@@ -1,0 +1,15 @@
+.card {
+    padding: 16px;
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 1px solid #B9C1B9;
+
+    &__info {
+        padding: 14px 0;
+        word-wrap: break-word;
+    }
+}
+
+.btn-delete {
+    margin-right: 5px;
+}

@@ -1,7 +1,11 @@
 
 <div role="main">
   <!-- Header -->
-  <app-header></app-header>
+  <app-header
+    [user]="(authState | async).user"
+    [isAuth]="(authState | async).isAuth"
+  ></app-header
+    >
 </div>
 
 <div>

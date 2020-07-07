@@ -11,6 +11,11 @@
                             {{link.name}}
                         </a>
                     </li>
+                    <li *ngIf="isAuth">
+                        <a href="#" (click)="onLogout()" class="headerContent__item-link"> 
+                            Logout
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
