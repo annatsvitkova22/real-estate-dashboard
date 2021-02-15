@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 import { AuthService } from './auth.service';
 import { AuthState } from '../../models';
@@ -25,7 +26,8 @@ export class AuthComponent implements OnInit {
     constructor(
         private authService: AuthService,
         private router: Router,
-        private store: Store<AppState>
+        private store: Store<AppState>,
+        private auth: AngularFireAuth
     ){}
 
     ngOnInit() {
@@ -50,6 +52,22 @@ export class AuthComponent implements OnInit {
         }, (error) => {
             console.log('error', error);
             this.isError = true;
+        });
+
+        this.form.value.email = '';
+        this.form.value.password = '';
+    }
+
+    onCreate = async () => {
+        const {email, password} = this.form.value;
+        await this.auth.createUserWithEmailAndPassword(email, password).then(async user => {
+            console.log('user', user);
+            await this.auth.signInWithEmailAndPassword(email, 'test').then(user => {
+                console.log('test');
+                console.log(user)
+            })
+        }).catch(err => {
+            console.log('err', err)
         });
 
         this.form.value.email = '';

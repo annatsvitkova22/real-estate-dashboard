@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import * as moment from 'moment';
 import { Store } from '@ngrx/store';
+import { transliterate as tr, slugify } from 'transliteration';
 
 import { Estate } from '../../models';
 import { AddEstate, EstateAction } from '../redux/estate.action';
@@ -49,7 +50,8 @@ import { IdEstateAction, AddIdEstate } from '../redux/id.action';
         if ( this.estateInfo === '' || this.estateName === '') {
             return;
         }
-
+        const ttest = slugify(this.estateInfo);
+        console.log('ttest', ttest)
         this.idStore.dispatch(new AddIdEstate());
     }
 }

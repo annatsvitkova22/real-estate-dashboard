@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth.guard';
 import { authReducer } from './redux/auth.reducer';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { authReducer } from './redux/auth.reducer';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({estatePage: estateReducer, idCounterPage: idEstateReducer, authPage: authReducer})
+    StoreModule.forRoot({estatePage: estateReducer, idCounterPage: idEstateReducer, authPage: authReducer}),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [
     PostService,

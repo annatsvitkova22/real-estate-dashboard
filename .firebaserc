@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "deputy-app": {
+      "hosting": {
+        "real-estate-dashboard": [
+          "deputy-app"
+        ]
+      }
+    }
+  }
+}
